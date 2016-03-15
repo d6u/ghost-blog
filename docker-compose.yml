@@ -1,0 +1,18 @@
+ghost-blog:
+  build: .
+  links:
+    - database
+  ports:
+    - '2368:2368'
+  environment:
+    NODE_ENV: development
+
+database:
+  image: postgres:9.5
+  ports:
+    - '5432:5432'
+  environment:
+    POSTGRES_PASSWORD: '1234'
+    POSTGRES_USER: db-user
+    POSTGRES_DB: db-dev
+    PGDATA: /var/lib/postgresql/data

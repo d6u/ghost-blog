@@ -19,32 +19,28 @@ module.exports = {
     //  },
     // ```
 
-    // #### Database
-    // Ghost supports sqlite3 (default), MySQL & PostgreSQL
     database: {
-      client: 'sqlite3',
+      client: 'pg',
       connection: {
-        filename: path.join(__dirname, '/content/data/ghost-dev.db')
+        host: process.env.DATABASE_PORT_5432_TCP_ADDR,
+        user: process.env.DATABASE_ENV_POSTGRES_USER,
+        password: process.env.DATABASE_ENV_POSTGRES_PASSWORD,
+        database: process.env.DATABASE_ENV_POSTGRES_DB,
+        charset: 'utf8'
       },
       debug: false
     },
-    // #### Server
-    // Can be host & port (default), or socket
     server: {
-      // Host to be passed to node's `net.Server#listen()`
-      host: '127.0.0.1',
-      // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
+      host: '0.0.0.0',
       port: '2368'
     },
-    // #### Paths
-    // Specify where your content directory lives
     paths: {
       contentPath: path.join(__dirname, '/content/')
     }
   },
 
   production: {
-    url: 'http://my-ghost-blog.com',
+    url: 'http://blog.daiwei.lu',
     mail: {},
     database: {
       client: 'sqlite3',
