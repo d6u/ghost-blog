@@ -6,6 +6,8 @@ ghost-blog:
     - '2368:2368'
   environment:
     NODE_ENV: development
+  volumes:
+    - ./content:/app/content
 
 database:
   image: postgres:9.5
