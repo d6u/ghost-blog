@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: ghost-blog-rc-v3
+spec:
+  replicas: 1
+  selector:
+    name: ghost-blog-pod
+    deployment: v3
+    environment: production
+  template:
+    metadata:
+      labels:
+        name: ghost-blog-pod
+        deployment: v3
+        environment: production
+    spec:
+      volumes:
+        - name: image-volume
+          gcePersistentDisk:
+            pdName: ghost-blog-pd
+            fsType: ext4
+        - name: ghost-blog-secret
+          secret:
+            secretName: ghost-blog-secret
+      restartPolicy: Always
+      containers:
+        - name: ghost-blog-container
+          image: us.gcr.io/daiwei-lu/ghost-blog:v3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 2368
+          volumeMounts:
+            - mountPath: /app/content/images
+              name: image-volume
+            - mountPath: /etc/secret-volume
+              name: ghost-blog-secret
+              readOnly: true

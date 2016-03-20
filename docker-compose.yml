@@ -8,6 +8,7 @@ ghost-blog:
     NODE_ENV: development
   volumes:
     - ./content:/app/content
+    - ./config:/app/config
 
 database:
   image: postgres:9.5

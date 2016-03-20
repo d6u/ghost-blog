@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/d6u/ghost-blog#readme",
   "dependencies": {
+    "config": "^1.19.0",
+    "dotenv": "^2.0.0",
     "ghost": "^0.7.8"
   }
 }
