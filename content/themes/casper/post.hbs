@@ -29,7 +29,9 @@
             {{content}}
         </section>
 
+
         <footer class="post-footer">
+
 
         {{! Everything inside the #author tags pulls data from the author }}
         {{#author}}
@@ -71,6 +73,24 @@
                     <span class="hidden">Google+</span>
                 </a>
             </section>
+
+            <div id="disqus_thread"></div>
+            <script>
+            var disqus_config = function () {
+                // Page's canonical URL
+                this.page.url = "{{@blog.url}}{{url}}";
+                // Page's unique identifier variable
+                this.page.identifier = "{{id}}";
+            };
+            // DON'T EDIT BELOW THIS LINE
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = '//daiweilu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
         </footer>
 
