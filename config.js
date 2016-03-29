@@ -38,7 +38,8 @@ module.exports = {
     mail,
   },
   production: {
-    url: 'http://blog.daiwei.lu',
+    url: 'http://blog-daiwei-lu.herokuapp.com',
+    // url: 'http://blog.daiwei.lu',
     server,
     paths,
     database,
