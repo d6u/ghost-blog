@@ -80,7 +80,10 @@
                 // Page's canonical URL
                 this.page.url = "{{@blog.url}}{{url}}";
                 // Page's unique identifier variable
-                this.page.identifier = "{{id}}";
+                // Set to URL in case we want to change blog hosting server
+                this.page.identifier = "{{url}}";
+
+                this.page.title = "{{title}}";
             };
             // DON'T EDIT BELOW THIS LINE
             (function() {
