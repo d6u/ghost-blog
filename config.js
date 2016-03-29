@@ -1,7 +1,5 @@
 'use strict';
 
-require('dotenv').config({path: '/etc/secret-volume/env-file'});
-
 const path = require('path');
 const config = require('config');
 
@@ -16,13 +14,7 @@ const paths = {
 
 const database = {
   client: 'pg',
-  connection: {
-    host: config.get('database.connection.host'),
-    user: config.get('database.connection.user'),
-    password: config.get('database.connection.password'),
-    database: config.get('database.connection.database'),
-    charset: 'utf8'
-  },
+  connection: config.get('database.connection'),
   debug: false,
 };
 
