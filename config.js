@@ -15,7 +15,7 @@ const paths = {
 const database = {
   client: 'pg',
   connection: config.get('database.connection'),
-  debug: false,
+  debug: true,
 };
 
 const mail = {
