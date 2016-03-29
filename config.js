@@ -5,7 +5,7 @@ const config = require('config');
 
 const server = {
   host: '0.0.0.0',
-  port: '2368',
+  port: config.get('server.port'),
 };
 
 const paths = {

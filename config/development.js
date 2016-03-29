@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
+  server: {
+    port: 2368,
+  },
   mailgun: {
     user: null,
     pass: null,
